@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <button id="toggleDark">🌙 حالت تاریک</button>
-    <input type="text" id="To-Do">
-    <button id="btn">click</button>
+    <button id="toggleDark" class="input width10">🌙 حالت تاریک</button>
+    <Div class="form-row">
+        <input type="text" id="To-Do" class="input width25" placeholder="inter your task">
+        <Select id="priority"  class="input">
+            <option value="low">low</option>
+            <option value="medium">medium</option>
+            <option value="high">high</option>
+        </Select>
+        <Select id="category" class="input">
+            <option value="Work">Work</option>
+            <option value="Personal">Personal</option>
+            <option value="Shopping">Shopping</option>
+            <option value="General">General</option>
+        </Select>
+        <input type="datetime-local" id="time"  class="input" >
+        <button id="btn" class="btn width10">creat</button>
+    </Div>
     <ul id="list">
 
     </ul>
     <script src="app.js"></script>
 </body>
+
 </html>
