@@ -12,23 +12,20 @@ button.addEventListener("click", () => {
     }
 
     const li = document.createElement("li")
-    const text = document.createElement("p")
-    const priorityText = document.createElement("span")
-    priorityText.textContent = `Priority:${priority.value}`
+    const text = document.createElement("span")
     const categorytext = document.createElement("span")
-    categorytext.textContent = `category:${category.value}`
-    const timetext = document.createElement("span")
-    timetext.textContent = `time:${time.value}`
+    categorytext.textContent = `${category.value}`
+
     text.textContent = task.value
     li.appendChild(text)
-    li.appendChild(priorityText);
     li.appendChild(categorytext);
-    li.appendChild(timetext);
     list.appendChild(li);
 
     li.classList.add(`priority-${priority.value}`); // میشه priority-high
     li.classList.add(`category-${category.value}`); // میشه category-Work
-
+    li.classList.add("li")
+    text.classList.add("lip");
+    categorytext.classList.add("li-category")
     task.value = ""
     priority.value = "low"
     category.value = "Work"
@@ -39,7 +36,7 @@ const darkmode = document.querySelector("#toggleDark")
 
 darkmode.addEventListener("click", () => {
     document.body.classList.toggle("dark")
-
+   
     if (document.body.classList.contains("dark")) {
         darkmode.textContent = "☀️ حالت روشن"
     } else {
