@@ -10,17 +10,23 @@ button.addEventListener("click", () => {
         alert("pleas inter your task:");
         return;
     }
-
     const li = document.createElement("li")
     const text = document.createElement("span")
     const categorytext = document.createElement("span")
-    categorytext.textContent = `${category.value}`
+    const deletebtn = document.createElement("button")
+    deletebtn.textContent = '🗑️'
+    deletebtn.classList.add("trash")
+    deletebtn.id = "trash"
 
+    deletebtn.addEventListener("click", () => {
+        li.remove();
+    });
+    categorytext.textContent = `${category.value}`
     text.textContent = task.value
     li.appendChild(text)
     li.appendChild(categorytext);
+    li.appendChild(deletebtn)
     list.appendChild(li);
-
     li.classList.add(`priority-${priority.value}`); // میشه priority-high
     li.classList.add(`category-${category.value}`); // میشه category-Work
     li.classList.add("li")
@@ -36,7 +42,7 @@ const darkmode = document.querySelector("#toggleDark")
 
 darkmode.addEventListener("click", () => {
     document.body.classList.toggle("dark")
-   
+
     if (document.body.classList.contains("dark")) {
         darkmode.textContent = "☀️ حالت روشن"
     } else {
