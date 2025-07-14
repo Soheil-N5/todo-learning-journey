@@ -1,51 +1,67 @@
-const task = document.querySelector("#To-Do")
-const priority = document.querySelector("#priority")
-const category = document.querySelector("#category")
-const time = document.querySelector("#time")
-const button = document.querySelector("#btn")
-const list = document.querySelector("#list")
+const taskInput = document.querySelector("#To-Do");
+const prioritySelect = document.querySelector("#priority");
+const categorySelect = document.querySelector("#category");
+const timeInput = document.querySelector("#time");
+const addButton = document.querySelector("#btn");
+const list = document.querySelector("#list");
+const darkModeButton = document.querySelector("#toggleDark");
 
-button.addEventListener("click", () => {
-    if (task.value.trim() === "") {
-        alert("pleas inter your task:");
+addButton.addEventListener("click", () => {
+    if (taskInput.value.trim() === "") {
+        alert("pls inter your task🙂");
         return;
     }
-    const li = document.createElement("li")
-    const text = document.createElement("span")
-    const categorytext = document.createElement("span")
-    const deletebtn = document.createElement("button")
-    deletebtn.textContent = '🗑️'
-    deletebtn.classList.add("trash")
-    deletebtn.id = "trash"
+    const taskItem = createTaskItem(
+        taskInput.value,
+        prioritySelect.value,
+        categorySelect.value
+    );
 
-    deletebtn.addEventListener("click", () => {
-        li.remove();
+    list.appendChild(taskItem);
+    resetForm();
+});
+
+function createTaskItem(taskText, priority, category) {
+    const li = document.createElement("li");
+    li.classList.add("li", `priority-${priority}`, `category-${category}`);
+
+    const textSpan = document.createElement("span");
+    textSpan.textContent = taskText;
+    textSpan.classList.add("lip");
+
+    const categoryBadge = document.createElement("span");
+    categoryBadge.textContent = category;
+    categoryBadge.classList.add("li-category");
+
+    const deleteButton = createDeleteButton(li);
+
+    li.appendChild(textSpan);
+    li.appendChild(categoryBadge);
+    li.appendChild(deleteButton);
+
+    return li;
+}
+
+function createDeleteButton(taskItem) {
+    const btn = document.createElement("button");
+    btn.textContent = "🗑️";
+    btn.classList.add("trash");
+    btn.addEventListener("click", () => {
+        taskItem.remove();
     });
-    categorytext.textContent = `${category.value}`
-    text.textContent = task.value
-    li.appendChild(text)
-    li.appendChild(categorytext);
-    li.appendChild(deletebtn)
-    list.appendChild(li);
-    li.classList.add(`priority-${priority.value}`); // میشه priority-high
-    li.classList.add(`category-${category.value}`); // میشه category-Work
-    li.classList.add("li")
-    text.classList.add("lip");
-    categorytext.classList.add("li-category")
-    task.value = ""
-    priority.value = "low"
-    category.value = "Work"
-    time.value = ""
-})
+    return btn;
+}
 
-const darkmode = document.querySelector("#toggleDark")
+function resetForm() {
+    taskInput.value = "";
+    prioritySelect.value = "low";
+    categorySelect.value = "Work";
+    timeInput.value = "";
+}
 
-darkmode.addEventListener("click", () => {
-    document.body.classList.toggle("dark")
-
-    if (document.body.classList.contains("dark")) {
-        darkmode.textContent = "☀️ حالت روشن"
-    } else {
-        darkmode.textContent = "🌙 حالت تاریک"
-    }
-})
+darkModeButton.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    darkModeButton.textContent = document.body.classList.contains("dark") ?
+        "☀️ حالت روشن" :
+        "🌙 حالت تاریک";
+});
