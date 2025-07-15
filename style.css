@@ -3,7 +3,6 @@ body.dark {
   color: #e0e0e0;
 }
 
-
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   max-width: 800px;
@@ -14,7 +13,6 @@ body {
   color: #333;
 }
 
-
 #toggleDark {
   position: fixed;
   right: 2rem;
@@ -23,7 +21,7 @@ body {
   border-radius: 30px;
   padding: 0.5rem 1rem;
   color: white;
-  background: #6366f1; 
+  background: #6366f1;
   cursor: pointer;
   font-weight: 600;
   z-index: 1000;
@@ -32,7 +30,6 @@ body {
 #toggleDark:hover {
   background: #4f46e5;
 }
-
 
 .input,
 .btn {
@@ -52,9 +49,8 @@ body {
   outline: none;
 }
 
-
 .btn {
-  background-color: #3b82f6; 
+  background-color: #3b82f6;
   color: white;
   font-weight: 600;
   font-size: 14px;
@@ -70,13 +66,12 @@ body {
   margin: 12px 0;
 }
 
-
 .li {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  background: #f1f5f9; 
+  background: #f1f5f9;
   margin-bottom: 0.75rem;
   padding: 0.75rem 1rem;
   border-radius: 10px;
@@ -86,14 +81,13 @@ body {
   transition: background-color 0.3s ease;
 }
 .lip {
-  color: #1f2937; 
+  color: #1f2937;
   font-weight: 500;
 }
 
-
 .li-category {
-  background: #c7d2fe; 
-  color: #1e3a8a; 
+  background: #c7d2fe;
+  color: #1e3a8a;
   font-size: 0.75rem;
   padding: 2px 8px;
   border-radius: 6px;
@@ -109,30 +103,34 @@ body {
 }
 .trash:hover {
   transform: scale(1.2);
-  color: #ef4444; 
+  color: #ef4444;
 }
-
+.done {
+  opacity: 0.6;
+  text-decoration: line-through;
+  transition: all 0.3s ease;
+}
 .priority-high {
-  border-left-color: #ef4444; 
+  border-left-color: #ef4444;
 }
 .priority-medium {
-  border-left-color: #f59e0b; 
+  border-left-color: #f59e0b;
 }
 .priority-low {
-  border-left-color: #10b981; 
+  border-left-color: #10b981;
 }
 
 .category-Work {
-  background-color: #dbeafe; 
-  color: #1e40af; 
+  background-color: #dbeafe;
+  color: #1e40af;
 }
 .category-Personal {
   background-color: #fce7f3;
-  color: #9d174d; 
+  color: #9d174d;
 }
 .category-Shopping {
-  background-color: #dcfce7; 
-  color: #065f46; 
+  background-color: #dcfce7;
+  color: #065f46;
 }
 
 .width30 {
